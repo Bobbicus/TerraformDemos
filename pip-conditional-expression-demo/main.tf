@@ -1,5 +1,5 @@
 resource "azurerm_resource_group" "rg" {
-  name     = join("", [var.resourcegroup1,var.environment, "-rg"])
+  name     = join("", [var.resourcegroup,var.environment, "-rg"])
   location = var.location
 }
 
