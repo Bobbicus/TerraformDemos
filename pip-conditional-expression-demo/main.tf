@@ -5,7 +5,7 @@ resource "azurerm_resource_group" "rg" {
 
 resource "azurerm_virtual_network" "vnet" {
   name                = join("", [var.environment, "-vnet01"])
-  address_space       = ["10.10.0.0/16"]
+  address_space       = ["10.10.0.0/24"]
   location            = var.location
   resource_group_name = azurerm_resource_group.rg.name
 }
@@ -14,7 +14,7 @@ resource "azurerm_subnet" "subnet" {
   name                 = join("", [var.environment, "-subnet01"])
   resource_group_name  = azurerm_resource_group.rg.name
   virtual_network_name = azurerm_virtual_network.vnet.name
-  address_prefix       = "10.10.2.0/24"
+  address_prefix       = "10.10.2.0/28"
 }
 
 resource "azurerm_public_ip" "publicip" {
