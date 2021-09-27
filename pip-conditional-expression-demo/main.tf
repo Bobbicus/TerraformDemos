@@ -1,12 +1,12 @@
 resource "azurerm_resource_group" "rg" {
-  name     = join("", [var.resourcegroup,var.environment, "-rg"])
+  name     = join("", [var.resourcegroup2,var.environment, "-rg"])
   location = var.location
 }
 
 resource "azurerm_virtual_network" "vnet" {
   name                = join("", [var.environment, "-vnet01"])
   address_space       = ["10.10.0.0/16"]
-  location            = var.locationasdfasdf 
+  location            = var.location
   resource_group_name = azurerm_resource_group.rg.name
 }
 
